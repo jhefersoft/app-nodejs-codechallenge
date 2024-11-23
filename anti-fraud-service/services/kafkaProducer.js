@@ -6,9 +6,7 @@ const kafka = new Kafka({ brokers: ['localhost:9092'] });
 
 const initKafkaProducer = async () => {
   producer = kafka.producer();
-  console.log("<<<<<<<<<<<<<<<<<", {producer})
   await producer.connect();
-  console.log('Kafka Producer connected');
 };
 
 const produceMessage = async (topic, message) => {

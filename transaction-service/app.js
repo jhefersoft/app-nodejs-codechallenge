@@ -4,11 +4,13 @@ const transactionRoutes = require('./routes/transactionRoutes');
 const { initKafkaProducer } = require('./services/kafkaProducer');
 const { initKafkaConsumer } = require('./services/kafkaConsumer');
 const { sequelize } = require('./models/transactionModel');
+const { requestLogger } = require('../utils/middleware')
 
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
+app.use(requestLogger)
 app.use('/api/transactions', transactionRoutes);
 
 (async () => {

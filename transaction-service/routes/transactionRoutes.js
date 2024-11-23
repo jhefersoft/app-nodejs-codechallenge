@@ -14,7 +14,6 @@ router.post('/', async (req, res) => {
 
     res.status(201).json(transaction);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: 'Error creating transaction' });
   }
 });
@@ -27,7 +26,6 @@ router.get('/:transactionExternalId', async (req, res) => {
 
     res.json(transaction);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: 'Error retrieving transaction' });
   }
 });
